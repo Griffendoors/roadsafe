@@ -335,29 +335,35 @@ app.get('/userBadges',function(req,res){
 
   var b1,b2,b3,b4;
 
+  var result;
 
-  var query = client.query('SELECT b1,b2,b3,b4 FROM badges b WHERE b.username = $1', [un],function(err,result){
+  var query = client.query('SELECT b1,b2,b3,b4 FROM badges b WHERE b.username = $1', [un]);
 
-    b1 = result.b1;
-    b2 = result.b2;
-    b3 = result.b3;
-    b4 = result.b4;
 
-    var toReturn = ""+b1.toString()+b2.toString()+b3.toString()+b4.toString();
-
-    res.writeHead(200);
-    res.write(toReturn);
-    res.end();
+  query.on('row', function(row, result) {
+      result.addRow(row);
   });
 
+  query.on('end', function(result) {
+      console.log(result.rows.length + ' rows were received');
+  });
+
+    // b1 = result.b1;
+    // b2 = result.b2;
+    // b3 = result.b3;
+    // b4 = result.b4;
+
+    // var toReturn = ""+b1.toString()+b2.toString()+b3.toString()+b4.toString();
+
+    // res.writeHead(200);
+    // res.write(toReturn);
+    // res.end();
 
 
 
 
-  // query.on('row',function(result){
 
 
-  // });
 
 
   // query.on('end',function(){
