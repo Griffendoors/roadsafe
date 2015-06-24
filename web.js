@@ -158,9 +158,9 @@ return res.send(alluser) ;
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-app.get('/user', function (req,res){
+app.get('/user/:username', function (req,res){
   console.log("1");
-if(!req.body.username ){console.log("start-----");
+if(!req.params.username ){console.log("start-----");
 console.log("NEED USERNAME");
 res.writeHead(400);
 res.write('Error 400 : USERNAME not specified');
@@ -169,7 +169,7 @@ res.end();
   console.log("2");
 var count =-1 ;
 var user ={
-username : req.body.username,
+username : req.params.username,
 totalpoint : 0 ,
 points_lvl : [10],
 best : [10]
