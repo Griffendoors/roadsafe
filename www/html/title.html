@@ -89,6 +89,7 @@
 			$.ajax({
 				type: "GET",
 				url : "https://roadsafe.herokuapp.com/user"+username,
+				data: {username: username},
 				success : function(data){
 					if(data == 'Error 400 : USERNAME not specified'){    
 						alert(data);
