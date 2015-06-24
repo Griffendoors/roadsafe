@@ -104,8 +104,6 @@ function car(caraudio) {
 			var username = sessionStorage.getItem('username');
 			var bid = 1;
 
-
-			alert("username is "+ username);
 			$.ajax({
 				type: "POST",
 				url : "https://roadsafe.herokuapp.com/newBadge",
