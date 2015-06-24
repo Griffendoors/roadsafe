@@ -50,31 +50,6 @@
 		$( "#tutoriallink" ).bind( "click", function(event, ui) {
 			window.location.replace("info.html");
 		});
-
-		$( "#rankinglink" ).bind( "click", function(event, ui) {
-			$.ajax({
-				type: "GET",
-				url : "https://roadsafe.herokuapp.com/rank",
-				success : function(data){
-					alert(data);
-					for(key in data){
-						alert(key);
-					}
-					if(data ==  "404 : NOT FOUND"){    
-						alert(data);
-					}
-					else{
-						sessionStorage.setItem('allRanks',data);
-					}
-				},
-				error: function(data) {
-					alert('an error occured');
-				}
-			},"json");
-
-			window.location.replace("ranking.html");
-		});
-
 		$( "#infolink" ).bind( "click", function(event, ui) {
 			window.location.replace("info.html");
 		});
@@ -85,26 +60,17 @@
 		$( "#profile" ).bind( "click", function(event, ui) {
 
 			var username = sessionStorage.getItem('username');
-			console.log("username is "+ username);
+			alert("username is "+ username);
 			$.ajax({
 				type: "GET",
-				url : "https://roadsafe.herokuapp.com/user/"+username,
+				url : "https://roadsafe.herokuapp.com/userBadges",
 				
 				success : function(data){
-					if(data == 'Error 400 : USERNAME not specified'){    
-						alert(data);
-					}
-
-					else{
-						alert(data.points_lvl[0]);
-						alert(data.points_lvl[1]);
-						alert(data.points_lvl[2]);
-						alert(data.points_lvl[3]);
-						sessionStorage.setItem('cond',data.points_lvl[0]);
-						sessionStorage.setItem('cond2',data.points_lvl[1]);
-						sessionStorage.setItem('cond3',data.points_lvl[2]);
-						sessionStorage.setItem('cond4',data.points_lvl[3]);
-					}
+					alert(data);
+					sessionStorage.setItem('b1', data.b1);
+					sessionStorage.setItem('b2', data.b2);
+					sessionStorage.setItem('b3', data.b3);
+					sessionStorage.setItem('b4', data.b4);
 				},
     			error: function (request, status, error) {
     				alert('error' );

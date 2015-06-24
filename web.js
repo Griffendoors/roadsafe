@@ -329,6 +329,59 @@ res.write("404 : USERNAME NOT FOUND");
 
 });
 
+
+app.get('userBadges',function(req,res){
+  var un = req.body.username;
+  var query = client.query('SELECT b1,b2,b3,b4 FROM badges b WHERE b.username = $1', [un]);
+
+  var b1,b2,b3,b4;
+  query.on('row',function(result){
+    b1 = result.b1;
+    b2 = result.b2;
+    b3 = result.b3;
+    b4 = result.b4;
+  });
+
+
+  query.on('end',function(){
+    var toReturn = {b1:b1, b2:b2, b3:b3, b4:b4};
+    res.writeHead(200);
+    res.write(toReturn);
+    res.end();
+  });
+
+
+});
+
+
+
+app.post('newBadge'function(req,res){
+  var un = req.body.username;
+  var bid = req.body.bid;
+
+  var query;
+
+    if(bid==1){
+      query = client.query('UPDATE badges SET b1 = TRUE WHERE username = $1', [un]);
+    }
+    else if(bid==2){
+      query = client.query('UPDATE badges SET b2 = TRUE WHERE username = $1', [un]);
+    }
+    else if(bid==3){
+      query = client.query('UPDATE badges SET b3 = TRUE WHERE username = $1', [un]);
+    }
+    else if(bid==4){
+      query = client.query('UPDATE badges SET b4 = TRUE WHERE username = $1', [un]);
+    }
+
+  query.on('end',function(){
+        res.writeHead(200);
+        res.write(token);
+        res.end();
+    });
+});
+
+
 ///////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
