@@ -527,7 +527,7 @@ function tokenAllowed(given,callback){
 
 }
 
-function removeActiveToken(given){
+function removeActiveToken(given,req,res){
   query = client.query('DELETE FROM validTokens WHERE token = $1',[given]);
   query.on('end',function(){
     var removeUserToken = client.query('UPDATE users SET token = $1 WHERE username = $2',["absent",given]);
@@ -543,7 +543,7 @@ function noToken(req,res){
 }
 
 function doLogOut(req,res){
-  removeActiveToken(req.query.token);
+  removeActiveToken(req.query.token,req,res);
 }
 
 
