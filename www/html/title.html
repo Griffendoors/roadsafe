@@ -64,7 +64,7 @@
 			$.ajax({
 				type: "GET",
 				url : "https://roadsafe.herokuapp.com/userBadges",
-				
+				data: {username: username},
 				success : function(data){
 					alert(data.b1);
 					alert(data.b2);
