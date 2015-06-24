@@ -344,7 +344,8 @@ app.get('/userBadges',function(req,res){
 
 
   query.on('end',function(){
-    var toReturn = {b1:b1, b2:b2, b3:b3, b4:b4};
+    var toReturn = ""+b1.toString()+b2.toString()+b3.toString()+b4.toString();
+
     res.writeHead(200);
     res.write(toReturn);
     res.end();
