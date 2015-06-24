@@ -64,13 +64,11 @@ app.post('/newUser',function(req,res){
           var query2 = client.query('INSERT INTO users(username,password) VALUES($1,$2)',[un,epw]);
           query2.on('end',function(){
             var query3 = client.query('INSERT INTO badges(username) VALUES($1)',[un]);
-            query2.on('end',function(){
-               res.writeHead(200);
-               res.write('signup succesful');
-               res.end();
+            query3.on('end',function(){
+              res.writeHead(200);
+              res.write('signup succesful');
+              res.end();
             });
-
-          });
           });
         });
       }
