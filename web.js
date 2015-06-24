@@ -438,7 +438,6 @@ app.post('/newBadge',function(req,res){
 
   query.on('end',function(){
         res.writeHead(200);
-        res.write(token);
         res.end();
     });
 });
