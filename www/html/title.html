@@ -66,14 +66,11 @@
 				url : "https://roadsafe.herokuapp.com/userBadges",
 				data: {username: username},
 				success : function(data){
-					alert(data.b1);
-					alert(data.b2);
-					alert(data.b3);
-					alert(data.b4);
-					sessionStorage.setItem('b1', data.b1);
-					sessionStorage.setItem('b2', data.b2);
-					sessionStorage.setItem('b3', data.b3);
-					sessionStorage.setItem('b4', data.b4);
+					alert(data);
+					// sessionStorage.setItem('b1', data.b1);
+					// sessionStorage.setItem('b2', data.b2);
+					// sessionStorage.setItem('b3', data.b3);
+					// sessionStorage.setItem('b4', data.b4);
 
 				},
     			error: function (request, status, error) {

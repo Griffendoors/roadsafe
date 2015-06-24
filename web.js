@@ -338,7 +338,7 @@ app.get('/userBadges',function(req,res){
   // console.log("r"+req.query.username);
 
 
-  var ab1,ab2,ab3,ab4;
+  // var ab1,ab2,ab3,ab4;
   var bb1,bb2,bb3,bb4;
 
   //var result;
@@ -347,11 +347,11 @@ app.get('/userBadges',function(req,res){
 
 
   query.on('row', function(row, result) {
-     // result.addRow(row);
-    ab1 = result.b1;
-    ab2 = result.b2;
-    ab3 = result.b3;
-    ab4 = result.b4;
+    //  // result.addRow(row);
+    // ab1 = result.b1;
+    // ab2 = result.b2;
+    // ab3 = result.b3;
+    // ab4 = result.b4;
     bb1 = row.b1;
     bb2 = row.b2;
     bb3 = row.b3;
@@ -360,25 +360,28 @@ app.get('/userBadges',function(req,res){
   });
 
   query.on('end', function(result) {
-      console.log(result.rows.length + ' rows were received');
-      console.log("1"+ab1);
-      console.log("2"+ab2);
-      console.log("3"+ab3);
-      console.log("4"+ab4);
-      console.log("5"+bb1);
-      console.log("6"+bb2);
-      console.log("7"+bb3);
-      console.log("8"+bb4);
+      //console.log(result.rows.length + ' rows were received');
+      // console.log("1"+ab1);
+      // console.log("2"+ab2);
+      // console.log("3"+ab3);
+      // console.log("4"+ab4);
+      // console.log("5"+bb1);
+      // console.log("6"+bb2);
+      // console.log("7"+bb3);
+      // console.log("8"+bb4);
+
+      var toReturn = ""+bb1.toString()+bb2.toString()+bb3.toString()+bb4.toString();
+      res.writeHead(200);
+      res.write(toReturn);
+      res.end();
 
   });
 
 
 
-    // var toReturn = ""+b1.toString()+b2.toString()+b3.toString()+b4.toString();
+    
 
-    // res.writeHead(200);
-    // res.write(toReturn);
-    // res.end();
+
 
 
 
