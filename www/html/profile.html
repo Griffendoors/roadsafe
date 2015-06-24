@@ -37,6 +37,31 @@
   	
    <script type = "text/javascript">
 	$(document).bind('pageinit',function(){
+
+	  var cond,cond2,cond3,cond4;
+
+	  var data = sessionStorage.getItem("data");
+
+
+
+	  alert(data.substring(0,1));
+	  alert(data.substring(1,2));
+	  alert(data.substring(2,3));
+	  alert(data.substring(3,4));
+
+	  if(data.substring(0,1) == "f") cond = false;
+	  else cond = false;
+
+	  if(data.substring(1,2) == "f") cond = false;
+	  else cond = false;
+
+	  if(data.substring(2,3) == "f") cond = false;
+	  else cond = false;
+
+	  if(data.substring(3,4) == "f") cond = false;
+	  else cond = false;
+
+
 	  var cond = sessionStorage.getItem("b1");
 	  var cond2 = sessionStorage.getItem("b2");
 	  var cond3 = sessionStorage.getItem("b3");
