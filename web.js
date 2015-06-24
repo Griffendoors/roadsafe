@@ -159,12 +159,14 @@ return res.send(alluser) ;
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 app.get('/user/:username', function (req,res){
+  console.log("1");
 if(!req.params.username ){console.log("start-----");
 console.log("NEED USERNAME");
 res.writeHead(400);
 res.write('Error 400 : USERNAME not specified');
 res.end();
 }
+  console.log("2");
 var count =-1 ;
 var user ={
 username : req.params.username,
@@ -198,7 +200,7 @@ res.end();
 query.on('end', function(){
 if(count == -1 ){console.log("3-----");
 console.log("USER NOT FOUND");
-//res.writeHead(404);
+res.writeHead(404);
 res.write("404: USERNOT FOUND");
 res.end();
 }
