@@ -106,9 +106,9 @@
 						sessionStorage.setItem('cond4',data.points_lvl[3]);
 					}
 				},
-				error: function(data) {
-					alert('an error occured');
-				}
+    			error: function (request, status, error) {
+        			alert(request.responseText);
+   				 }
 			},"json");
 			window.location.replace("profile.html");
 		});
