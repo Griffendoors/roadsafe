@@ -383,7 +383,7 @@ app.get('/userBadges',function(req,res){
       var string4 = s4.substring(0,1);
 
       var toReturn = ""+string1+string2+string3+string4;
-      console.log(toReturn);
+      console.log("ppp"+toReturn);
       res.writeHead(200);
       res.write(toReturn);
       res.end();
