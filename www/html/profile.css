@@ -77,3 +77,15 @@ background-repeat: no-repeat;
 	
 }
 
+
+		/* Back Arrow Icon */
+		#backicon {
+			opacity: 0.6;
+			left: 2%;
+			top:92%;
+			margin:0 auto;
+			position:absolute;
+			display:block;
+			height:50px;
+			width:50px;
+		}
