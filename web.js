@@ -331,11 +331,11 @@ res.write("404 : USERNAME NOT FOUND");
 
 
 app.get('/userBadges',function(req,res){
-  var un = req.body.username;
+  var un = req.query.username;
 
-  console.log("TTTTTTTTTTTTTTTTTTTTT"+un);
-  console.log("y"+req.params.username);
-  console.log("r"+req.query.username);
+  // console.log("TTTTTTTTTTTTTTTTTTTTT"+un);
+  // console.log("y"+req.params.username);
+  // console.log("r"+req.query.username);
 
 
   var b1,b2,b3,b4;
