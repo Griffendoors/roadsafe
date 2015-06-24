@@ -55,6 +55,9 @@
 				url : "https://roadsafe.herokuapp.com/rank",
 				success : function(data){
 					alert(data);
+					for(key in data){
+						alert(key);
+					}
 					if(data ==  "404 : NOT FOUND"){    
 						alert(data);
 					}
@@ -100,6 +103,10 @@
 					}
 				},
 				error: function(data) {
+					alert(data);
+					for(key in data){
+						alert(key);
+					}
 					alert('an error occured');
 				}
 			},"json");

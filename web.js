@@ -159,7 +159,7 @@ return res.send(alluser) ;
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 app.get('/user/:username', function (req,res){
-if(!req.params.username ){
+if(!req.params.username ){console.log("start-----");
 console.log("NEED USERNAME");
 res.writeHead(400);
 res.write('Error 400 : USERNAME not specified');
@@ -175,7 +175,7 @@ best : [10]
 query = client.query('SELECT COUNT(*) AS COUNT ,TOTALPOINTS, USERNAME , POINTS_LVL , LVL_BEST FROM RANK WHERE USERNAME=$1 GROUP BY USERNAME', 
 [user.username]);
 query.on('row', function(result){
-if(result){
+if(result){console.log("1-----");
 count = result.count;
 user.totalpoint = result.totalpoints;
 user.points_lvl =result.points_lvl;
@@ -187,7 +187,7 @@ res.end();
 }
 });
 query.on('err', function(err){
-if(err){
+if(err){console.log("2-----");
 console.log("ERROR" + err.message);
 res.writeHead(503);
 res.write("503 : ERROR");
@@ -196,7 +196,7 @@ res.end();
 
 });
 query.on('end', function(){
-if(count == -1 ){
+if(count == -1 ){console.log("3-----");
 console.log("USER NOT FOUND");
 res.writeHead(404);
 res.write("404: USERNOT FOUND");
