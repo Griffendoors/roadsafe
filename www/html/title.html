@@ -16,9 +16,10 @@
 
 <h1 id="title"> Road Crossing App Build </h1>
 
-
 <button id="gamelink" type="button">To The Game</button>
 
+
+<button id="profile" type="button">Profile</button>
 
 <button id="tutoriallink" type="button">How to Play</button>
 
@@ -49,7 +50,23 @@
 		});
 
 		$( "#rankinglink" ).bind( "click", function(event, ui) {
-			window.location.replace("info.html");
+			$.ajax({
+				type: "GET",
+				url : "https://roadsafe.herokuapp.com/rank",
+				success : function(data){
+					if(data ==  "404 : NOT FOUND"){    
+						alert(data);
+					}
+					else{
+						sessionStorage.setItem('allRanks',data);
+					}
+				},
+				error: function(data) {
+					alert('an error occured');
+				}
+			},"json");
+
+			window.location.replace("ranking.html");
 		});
 
 		$( "#infolink" ).bind( "click", function(event, ui) {
@@ -58,6 +75,34 @@
 		$( "#quitlink" ).bind( "click", function(event, ui) {
 			window.location.replace("info.html");
 		});
+
+		$( "#profile" ).bind( "click", function(event, ui) {
+
+			var username = sessionStorage.getItem('username');
+
+			$.ajax({
+				type: "GET",
+				url : "https://roadsafe.herokuapp.com/user"+username,
+				success : function(data){
+					if(data == 'Error 400 : USERNAME not specified'){    
+						alert(data);
+					}
+					else{
+						sessionStorage.setItem('cond',data.points_lvl[0]);
+						sessionStorage.setItem('cond2',data.points_lvl[1]);
+						sessionStorage.setItem('cond3',data.points_lvl[2]);
+						sessionStorage.setItem('cond4',data.points_lvl[3]);
+					}
+				},
+				error: function(data) {
+					alert('an error occured');
+				}
+			},"json");
+			window.location.replace("profile.html");
+		});
+
+
+
 
 		$( "#logout" ).bind( "click", function(event, ui) {
 		

@@ -1,0 +1,79 @@
+<DOCTYPE html>
+<html>
+  <head>
+    
+	<link rel="stylesheet" href="profile.css" type="text/css" media="screen">
+	
+  </head>
+
+
+  <body>
+  	<div id= "container">
+
+  		<div id="title">Profile Page</div>
+
+  		<div id= "body">
+         <div id="bages">
+        
+            <div id="box">
+                <div id="img1"></div>
+                <div id="img2"></div>
+                <div id="img3"></div>
+                <div id="img4"></div>
+                
+            </div>
+        <div id="profile">
+            <div id="name">Your Name Here</div>
+        </div>
+      </div>
+
+  		
+
+  	</div>
+  	
+  	
+   <script type = "text/javascript">
+	$(document).bind('pageinit',function(){
+	  var cond = sessionStorage.getItem("cond");
+	  var cond2 = sessionStorage.getItem("cond2");
+	  var cond3 = sessionStorage.getItem("cond3");
+	  var cond4 = sessionStorage.getItem("cond4");
+	      
+
+	  if(cond) {
+	    document.getElementById("img1").src = "images/b-01.svg";
+	  }
+	  else{
+	    document.getElementById("img1").src = "imageLocIfDoesntHaveB1";
+	  }
+	  if(cond2){
+	    document.getElementById("img2").src = "images/b-02.svg";
+	  }
+	  else{
+	    document.getElementById("img2").src = "imageLocIfDoesntHaveB2";
+	  }
+	  if(cond3){
+	    document.getElementById("img3").src = "images/b-03.svg";
+	  }
+	  else{
+	    document.getElementById("img3").src = "imageLocIfDoesntHaveB3";
+	  }
+	  if(cond4){
+	    document.getElementById("img4").src = "images/b-04.svg";
+	  }
+	  else{
+	    document.getElementById("img4").src = "imageLocIfDoesntHaveB4";
+	  }
+	});
+   
+
+    	
+</script>
+
+
+  </body>
+
+  
+</html>
+
+

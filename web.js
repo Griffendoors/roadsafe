@@ -161,8 +161,9 @@ return res.send(alluser) ;
 app.get('/user/:username', function (req,res){
 if(!req.params.username ){
 console.log("NEED USERNAME");
-res.statusCode = 400 ;
-return res.send('Error 400 : USERNAME not specified'); 
+res.writeHead(400);
+res.write('Error 400 : USERNAME not specified');
+res.end();
 }
 var count =-1 ;
 var user ={
@@ -179,24 +180,27 @@ count = result.count;
 user.totalpoint = result.totalpoints;
 user.points_lvl =result.points_lvl;
 user.best = result.lvl_best;
-res.statusCode =200 ;
 console.log("RETRIEVE SUCCESS AT GET USER") ;
-return res.send(user) ; 
+res.writeHead(200);
+res.write(user);
+res.end();
 }
 });
 query.on('err', function(err){
 if(err){
-res.statusCode =503;
 console.log("ERROR" + err.message);
-return res.send("503 : ERROR");
+res.writeHead(503);
+res.write("503 : ERROR");
+res.end();
 }
 
 });
 query.on('end', function(){
 if(count == -1 ){
 console.log("USER NOT FOUND");
-res.statusCode =404 ;
-return res.send("404: USERNOT FOUND");
+res.writeHead(404);
+res.write("404: USERNOT FOUND");
+res.end();
 }
 res.end() ;
 });
@@ -207,8 +211,12 @@ app.get('/pointsAtlevel/:username/:lvl', function (req, res){
 
 if(!req.params.username || req.params.lvl < 0 || req.params.lvl>10 ){
 console.log( "please specify what lvl need") ;
-res.statusCode = 400;
-return res.send('Error 400: BAD REQUEST , Post syntax incorrect.');
+
+
+res.writeHead(400);
+res.write('Error 400: BAD REQUEST , Post syntax incorrect.');
+res.end();
+
 }
 
 var obj  = {
@@ -226,23 +234,33 @@ console.log("suceess"+ result.points) ;
 res.write(""+p) ;
 res.end();
 }else {
-console.log("404 : NOT FOUND"); return res.send("404: CAN NOT FIND USER WITH GIVEN USER NAME");
+console.log("404 : NOT FOUND"); 
+res.writeHead(404);
+res.write("404: CAN NOT FIND USER WITH GIVEN USER NAME");
+res.end();
+
 }
  
 } 
 });
 
 query.on('error', function(err){
-res.statusCode = 503 ; 
 console.log(err.message) ; 
-return res.send("503 : ERROR") ; 
+
+res.writeHead(503);
+res.write("503 : ERROR");
+res.end();
+
 });
+
+
 
 query.on('end', function(){
 if(returnPoint == -1 ) {
 console.log("404 : NOT FOUND");
-res.statusCode = 404 ;
-return res.send("404: NOT CANT FIND USERNAME");}
+res.writeHead(404);
+res.write("404: NOT CANT FIND USERNAME");}
+
 res.end() ; 
 });
 
@@ -251,8 +269,10 @@ res.end() ;
 app.post('/update/:lvl' , function (req, res){
 if(!req.body.hasOwnProperty('username') || !req.body.hasOwnProperty('point') || !req.params.lvl > 0){
 console.log( "please specify what lvl need to update") ;
-res.statusCode = 400;
-return res.send('Error 400: Post syntax incorrect.');
+
+res.writeHead(400);
+res.write('Error 400: Post syntax incorrect.');
+res.end() ; 
 
 }  
 var obj  = {
@@ -270,25 +290,30 @@ best = result.best ;
 });
 
 query.on('err' , function(err){
-res.statusCode = 503  ;
 console.log( "ERROR :  "+ err.message) ;
-return res.send("503 : ERROR");
+
+res.writeHead(503);
+res.write("503 : ERROR");
+res.end() ; 
+
 });
 
 query.on('end', function(){
 if(count == -1 ) {
 //res.statusCode = 404 ;
 console.log ( "404 : USERNAME NOT FOUND") ; 
-return res.send("404 : USERNAME NOT FOUND"); 
+res.write("404 : USERNAME NOT FOUND");
 }else {
-   if(best >= obj.point){res.statusCode=200; console.log("DO NOT NEED TO UPDATE"); res.send("200 : DO NOT NEED TO UPDATE") ; }  
+   if(best >= obj.point){res.statusCode=200; console.log("DO NOT NEED TO UPDATE");  
+   res.write("200 : DO NOT NEED TO UPDATE") ;  res.end() ; 
+ }  
    else {
   client.query('UPDATE rank SET points_lvl[$1] = $2, lvl_best[$1]=$2 , totalpoints = totalpoints + $3 WHERE username=$4',[obj.level,obj.point,(obj.point-best),obj.username],function (err){
-                if(err) {console.log( "err :"+err.message) ; res.statusCode = 503 ; return res.send ("503 : Error at UPDATE" ) ; }  
+                if(err) {console.log( "err :"+err.message) ; res.writeHead(503); res.write("503 : Error at UPDATE" ) ; res.end() ;  }  
     console.log("UPDATED");
-    res.statusCode = 200 ; 
-    return res.send("200 : UPDATE") ;   
-  
+    res.writeHead(200);
+    res.write("200 : UPDATE") ;   
+    res.end() ; 
         }); 
         
 
@@ -300,6 +325,7 @@ return res.send("404 : USERNAME NOT FOUND");
 
 });
 
+res.end() ; 
 
 
 ///////////////////////////////////////////////////////////////////////////
