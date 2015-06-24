@@ -63,9 +63,12 @@ app.post('/newUser',function(req,res){
         encrypt(pw,function(epw){
           var query2 = client.query('INSERT INTO users(username,password) VALUES($1,$2)',[un,epw]);
           query2.on('end',function(){
+            var query3 = client.query('INSERT INTO rank VALUES ($1,0 ,Array[0,0,0,0,0,0,0,0,0,0],Array[0,0,0,0,0,0,0,0,0,0])',[un],function(err){
+            if(err){ res.write('Error in create score table for user'+ err.message) ; res.end();}
            res.writeHead(200);
            res.write('signup succesful');
            res.end();
+         });
           });
         });
       }
@@ -108,7 +111,198 @@ app.post('/login',function(req,res){
 
 
 });
+/////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+app.get('/testupdate', function (req,res){
+res.sendfile('testupdate.html'); 
 
+});
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+app.get('/rank', function (req,res){
+query = client.query('SELECT username , totalpoints, points_lvl FROM rank ORDER BY totalpoints DESC') ;
+var alluser =[];
+query.on('row', function (result){
+var user ={
+username : "",
+totalpoints: 0 
+
+} ; 
+user.username = result.username;
+user.totalpoints = result.totalpoints;
+user.points_lvl = result.points_lvl ; 
+alluser.push(user) ; 
+});
+
+query.on('err', function(err){
+res.statusCode =  503 ; 
+console.log("503 : ERROR "+ err.message );
+return res.send( "503 : ERROR"); 
+})
+
+query.on('end', function(){
+if(alluser.length < 1 ){
+res.statusCode =404 ; 
+console.log ("404 : NOT FOUND");
+res.return ("404 : NOT FOUND");
+res.end() ; 
+}else {
+res.statusCode = 200 ; 
+console.log("SUCCESS RETRIEVING FROM DATABASE");
+return res.send(alluser) ; 
+
+}
+
+});
+
+});
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+app.get('/user/:username', function (req,res){
+if(!req.params.username ){
+console.log("NEED USERNAME");
+res.statusCode = 400 ;
+return res.send('Error 400 : USERNAME not specified'); 
+}
+var count =-1 ;
+var user ={
+username : req.params.username,
+totalpoint : 0 ,
+points_lvl : [10],
+best : [10]
+}
+query = client.query('SELECT COUNT(*) AS COUNT ,TOTALPOINTS, USERNAME , POINTS_LVL , LVL_BEST FROM RANK WHERE USERNAME=$1 GROUP BY USERNAME', 
+[user.username]);
+query.on('row', function(result){
+if(result){
+count = result.count;
+user.totalpoint = result.totalpoints;
+user.points_lvl =result.points_lvl;
+user.best = result.lvl_best;
+res.statusCode =200 ;
+console.log("RETRIEVE SUCCESS AT GET USER") ;
+return res.send(user) ; 
+}
+});
+query.on('err', function(err){
+if(err){
+res.statusCode =503;
+console.log("ERROR" + err.message);
+return res.send("503 : ERROR");
+}
+
+});
+query.on('end', function(){
+if(count == -1 ){
+console.log("USER NOT FOUND");
+res.statusCode =404 ;
+return res.send("404: USERNOT FOUND");
+}
+res.end() ;
+});
+
+});
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+app.get('/pointsAtlevel/:username/:lvl', function (req, res){
+
+if(!req.params.username || req.params.lvl < 0 || req.params.lvl>10 ){
+console.log( "please specify what lvl need") ;
+res.statusCode = 400;
+return res.send('Error 400: BAD REQUEST , Post syntax incorrect.');
+}
+
+var obj  = {
+username : req.params.username,
+};
+ 
+query = client.query('SELECT POINTS_LVL [$1] AS points, COUNT(username)  FROM RANK WHERE username = $2 GROUP BY POINTS_LVL[$1]',[req.params.lvl-1, obj.username]);
+var returnPoint = -1  ; var  p = -1 ; 
+query.on('row', function (result){
+if (result) {
+returnPoint = result.count ;
+p  = result.points ;
+if(p != -1 ) {
+console.log("suceess"+ result.points) ;
+res.write(""+p) ;
+res.end();
+}else {
+console.log("404 : NOT FOUND"); return res.send("404: CAN NOT FIND USER WITH GIVEN USER NAME");
+}
+ 
+} 
+});
+
+query.on('error', function(err){
+res.statusCode = 503 ; 
+console.log(err.message) ; 
+return res.send("503 : ERROR") ; 
+});
+
+query.on('end', function(){
+if(returnPoint == -1 ) {
+console.log("404 : NOT FOUND");
+res.statusCode = 404 ;
+return res.send("404: NOT CANT FIND USERNAME");}
+res.end() ; 
+});
+
+});
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+app.post('/update/:lvl' , function (req, res){
+if(!req.body.hasOwnProperty('username') || !req.body.hasOwnProperty('point') || !req.params.lvl > 0){
+console.log( "please specify what lvl need to update") ;
+res.statusCode = 400;
+return res.send('Error 400: Post syntax incorrect.');
+
+}  
+var obj  = {
+username : req.body.username,
+point : req.body.point, 
+level : req.params.lvl-1
+};
+// assuming the username is correct that why it can do the updating
+
+query = client.query('SELECT count(username) , lvl_best[$1] AS best FROM rank WHERE username = $2 GROUP BY lvl_best[$1]',[obj.level, obj.username]);
+var count = -1  ; var best =  0 ; 
+query.on('row', function(result){
+count = result.count ; 
+best = result.best ;
+});
+
+query.on('err' , function(err){
+res.statusCode = 503  ;
+console.log( "ERROR :  "+ err.message) ;
+return res.send("503 : ERROR");
+});
+
+query.on('end', function(){
+if(count == -1 ) {
+//res.statusCode = 404 ;
+console.log ( "404 : USERNAME NOT FOUND") ; 
+return res.send("404 : USERNAME NOT FOUND"); 
+}else {
+   if(best >= obj.point){res.statusCode=200; console.log("DO NOT NEED TO UPDATE"); res.send("200 : DO NOT NEED TO UPDATE") ; }  
+   else {
+  client.query('UPDATE rank SET points_lvl[$1] = $2, lvl_best[$1]=$2 , totalpoints = totalpoints + $3 WHERE username=$4',[obj.level,obj.point,(obj.point-best),obj.username],function (err){
+                if(err) {console.log( "err :"+err.message) ; res.statusCode = 503 ; return res.send ("503 : Error at UPDATE" ) ; }  
+    console.log("UPDATED");
+    res.statusCode = 200 ; 
+    return res.send("200 : UPDATE") ;   
+  
+        }); 
+        
+
+  }
+}
+//res.end() ;
+});
+
+
+});
+
+
+
+///////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function doseqTok(req,res){
