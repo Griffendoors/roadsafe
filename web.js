@@ -333,9 +333,11 @@ res.write("404 : USERNAME NOT FOUND");
 app.get('/userBadges',function(req,res){
   var un = req.body.username;
 
+  console.log("TTTTTTTTTTTTTTTTTTTTT"+un);
+
   var b1,b2,b3,b4;
 
-  var result;
+  //var result;
 
   var query = client.query('SELECT b1,b2,b3,b4 FROM badges b WHERE b.username = $1', [un]);
 
@@ -358,11 +360,6 @@ app.get('/userBadges',function(req,res){
     // res.writeHead(200);
     // res.write(toReturn);
     // res.end();
-
-
-
-
-
 
 
 
