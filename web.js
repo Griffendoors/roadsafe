@@ -370,18 +370,24 @@ app.get('/userBadges',function(req,res){
       // console.log("7"+bb3);
       // console.log("8"+bb4);
 
-      var toReturn = ""+bb1.toString()+bb2.toString()+bb3.toString()+bb4.toString();
+      var s1 = bb1.toString();
+      var string1 = s1.substring(0,1);
+
+      var s2 = bb2.toString();
+      var string2 = s2.substring(0,1);
+
+      var s3 = bb3.toString();
+      var string3 = s3.substring(0,1);
+
+      var s4 = bb4.toString();
+      var string4 = s4.substring(0,1);
+
+      var toReturn = ""+string1+string2+string3+string4;
       res.writeHead(200);
       res.write(toReturn);
       res.end();
 
   });
-
-
-
-    
-
-
 
 
 
