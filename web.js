@@ -63,7 +63,7 @@ app.post('/newUser',function(req,res){
         encrypt(pw,function(epw){
           var query2 = client.query('INSERT INTO users(username,password) VALUES($1,$2)',[un,epw]);
           query2.on('end',function(){
-            var query3 = client.query('INSERT INTO badges(username) VALUES($1)',[un]);
+            var query3 = client.query('INSERT INTO badges(username,b1,b2,b3,b4) VALUES($1,FALSE,FALSE,FALSE,FALSE)',[un]);
             query3.on('end',function(){
               res.writeHead(200);
               res.write('signup succesful');
