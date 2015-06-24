@@ -2,8 +2,8 @@
 <html>
   <head>
     
-	<!--<link rel="stylesheet" href="profile.css" type="text/css" media="screen">-->
-	  <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<link rel="stylesheet" href="profile.css" type="text/css" media="screen">
+	 <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
   <script src="https://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
 	
   </head>
@@ -12,7 +12,7 @@
   <body>
   	<div id= "container">
 
-  		<div id="title">Profile Page</div>
+  		<div id="title"></div>
 
   		<div id= "body">
          <div id="bages">
@@ -29,10 +29,12 @@
 
         </div>
       </div>
-
-  		
-
   	</div>
+  	
+  	 <!-- Back icon-->
+	<a href= "title.html" >
+	<img src="images/backicon.png" id="backicon">
+	</a>
   	
   
 
@@ -49,14 +51,14 @@
 
 
 	var username = sessionStorage.getItem('username');
-	document.getElementById("name").innerHTML = username;
+	document.getElementById("title").innerHTML = username+"s profile";
+	document.getElementById("name").innerHTML = username+"s badges";
 
 
 	  var cond,cond2,cond3,cond4;
 
 	  var data = sessionStorage.getItem('data');
 
-	  alert(data);
 	  // alert(data.substring(0,1));
 	  // alert(data.substring(1,2));
 	  // alert(data.substring(2,3));

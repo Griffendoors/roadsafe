@@ -60,20 +60,17 @@
 
 			var username = sessionStorage.getItem('username');
 
-			alert("username is "+ username);
 			$.ajax({
 				type: "GET",
 				url : "https://roadsafe.herokuapp.com/userBadges",
 				data: {username: username},
 				success : function(data){
-					alert(data);
 					sessionStorage.setItem('data', data);
 					window.location.replace("profile.html");
 
 				},
     			error: function (request, status, error) {
-    				// alert('error' );
-        // 			alert(request.responseText);
+         			alert(request.responseText);
    				 }
 			},"json");
 			

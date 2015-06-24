@@ -10,7 +10,6 @@ client.connect();
 
 //CREATE A SCHEMA - users
 query = client.query('DROP TABLE IF EXISTS badges;');
-
 query = client.query('CREATE TABLE badges(username text PRIMARY KEY, b1 BOOLEAN, b2 BOOLEAN, b3 BOOLEAN, b4 BOOLEAN)');
 
 query.on('end', function(result) { client.end(); });
