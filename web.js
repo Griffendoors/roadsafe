@@ -183,6 +183,7 @@ user.totalpoint = result.totalpoints;
 user.points_lvl =result.points_lvl;
 user.best = result.lvl_best;
 console.log("RETRIEVE SUCCESS AT GET USER") ;
+console.log(user.toString());
 res.writeHead(200);
 res.write(user.toString());
 res.end();
