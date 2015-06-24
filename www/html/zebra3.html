@@ -48,7 +48,7 @@ function car(caraudio) {
  <!-- Cross Button -->								 
 
 
- 	///
+ 	
 	<button id="crossicon" type="button">
 		<a href="worldmap.html"  id="hyperlink">Cross</a>
 	</button>
@@ -97,10 +97,16 @@ function car(caraudio) {
 			cache: false
 		});
 
-		$( "#crossicon" ).bind( "click", function(event, ui) {
+		var clickCount = 0;
 
+		$( "#crossicon" ).bind( "click", function(event, ui) {
+			if(clickCount == 0){
+				clickCount++;
+				return;
+			}
 			var username = sessionStorage.getItem('username');
 			var bid = 2;
+
 
 
 			alert("username is "+ username);
@@ -115,7 +121,6 @@ function car(caraudio) {
 
    				 }
 			},"json");
-			window.location.replace("profile.html");
 		});
 
 
