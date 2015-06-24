@@ -60,6 +60,7 @@
 		$( "#profile" ).bind( "click", function(event, ui) {
 
 			var username = sessionStorage.getItem('username');
+			sessionStorage.setItem('data', 'ffff');
 			alert("username is "+ username);
 			$.ajax({
 				type: "GET",
