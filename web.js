@@ -336,6 +336,9 @@ app.get('/userBadges',function(req,res){
 
   var b1,b2,b3,b4;
   query.on('row',function(result){
+    for(key in result){
+      console.log(result);
+    }
     b1 = result.b1;
     b2 = result.b2;
     b3 = result.b3;
