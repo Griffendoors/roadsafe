@@ -527,12 +527,13 @@ function tokenAllowed(given,callback){
 
 }
 
-function removeActiveToken(given,callback){
+function removeActiveToken(given){
   query = client.query('DELETE FROM validTokens WHERE token = $1',[given]);
   query.on('end',function(){
     var removeUserToken = client.query('UPDATE users SET token = $1 WHERE username = $2',["absent",given]);
     removeUserToken.on('end',function(){
-        callback();
+          res.write('logout succesful');
+          res.end();
     });
   });
 }
@@ -542,13 +543,10 @@ function noToken(req,res){
 }
 
 function doLogOut(req,res){
-  removeActiveToken(req.query.token,loggedOut(req,res));
+  removeActiveToken(req.query.token);
 }
 
-function loggedOut(req,res){
-  res.write('logout succesful');
-  res.end();
-}
+
 
 
 
