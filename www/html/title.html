@@ -91,6 +91,7 @@
 					if(data == 'Error 400 : USERNAME not specified'){    
 						alert(data);
 					}
+
 					else{
 						alert(data.points_lvl[0]);
 						alert(data.points_lvl[1]);
@@ -103,10 +104,6 @@
 					}
 				},
 				error: function(data) {
-					alert(data);
-					for(key in data){
-						alert(key);
-					}
 					alert('an error occured');
 				}
 			},"json");
