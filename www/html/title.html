@@ -85,11 +85,11 @@
 		$( "#profile" ).bind( "click", function(event, ui) {
 
 			var username = sessionStorage.getItem('username');
-
+			console.log("username is "+ username);
 			$.ajax({
 				type: "GET",
 				url : "https://roadsafe.herokuapp.com/user/"+username,
-				data: {username: username},
+				
 				success : function(data){
 					if(data == 'Error 400 : USERNAME not specified'){    
 						alert(data);
@@ -107,7 +107,7 @@
 					}
 				},
     			error: function (request, status, error) {
-    				alert('error');
+    				alert('error' );
         			alert(request.responseText);
    				 }
 			},"json");
