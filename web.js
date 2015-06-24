@@ -198,7 +198,7 @@ res.end();
 query.on('end', function(){
 if(count == -1 ){console.log("3-----");
 console.log("USER NOT FOUND");
-res.writeHead(404);
+//res.writeHead(404);
 res.write("404: USERNOT FOUND");
 res.end();
 }
