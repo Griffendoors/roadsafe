@@ -85,6 +85,41 @@ function car(caraudio) {
 	        // Your callback code here!
 	    });
 	</script>
+
+
+<script type="text/javascript">
+	$(document).bind('pageinit', function() {
+		$.ajaxSetup ({
+			cache: false
+		});
+
+		$( "#crossicon" ).bind( "click", function(event, ui) {
+
+			var username = sessionStorage.getItem('username');
+			var bid = 1;
+
+
+			alert("username is "+ username);
+			$.ajax({
+				type: "POST",
+				url : "https://roadsafe.herokuapp.com/newBadge",
+				data: {username: username, bid: bid},
+				success : function(data){
+
+				},
+    			error: function (request, status, error) {
+
+   				 }
+			},"json");
+			window.location.replace("profile.html");
+		});
+
+
+
+
+	});
+	</script>
+
 			
   </body>
 
