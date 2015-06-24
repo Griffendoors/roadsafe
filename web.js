@@ -354,29 +354,29 @@ app.get('/userBadges',function(req,res){
 
 
 
-  query.on('row',function(result){
+  // query.on('row',function(result){
 
 
-  });
+  // });
 
 
-  query.on('end',function(){
+  // query.on('end',function(){
 
-    for(key in result){
-      console.log(result);
-    }
+  //   for(key in result){
+  //     console.log(result);
+  //   }
 
 
-    // var toReturn = ""+b1.toString()+b2.toString()+b3.toString()+b4.toString();
+  //   // var toReturn = ""+b1.toString()+b2.toString()+b3.toString()+b4.toString();
 
-    // res.writeHead(200);
-    // res.write(toReturn);
-    // res.end();
+  //   // res.writeHead(200);
+  //   // res.write(toReturn);
+  //   // res.end();
 
-    res.writeHead(200);
-    res.write("");
-    res.end();
-  });
+  //   res.writeHead(200);
+  //   res.write("");
+  //   res.end();
+  // });
 
 
 });
