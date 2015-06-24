@@ -51,7 +51,7 @@ function hint() {
  <!-- Cross Button -->								 
 
 	<button id="crossicon" type="button" >
-		<a href="worldmap.html"  id="hyperlink">Cross</a>
+		Cross
 	</button>
 
 
@@ -114,13 +114,13 @@ function hint() {
 				url : "https://roadsafe.herokuapp.com/newBadge",
 				data: {username: username, bid: bid},
 				success : function(data){
-
+					window.location.replace("worldmap.html");
 				},
     			error: function (request, status, error) {
 
    				 }
 			},"json");
-						window.location.replace("worldmap.html");
+
 		});
 
 
