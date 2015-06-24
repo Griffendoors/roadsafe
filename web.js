@@ -184,9 +184,9 @@ user.points_lvl =result.points_lvl;
 user.best = result.lvl_best;
 console.log("RETRIEVE SUCCESS AT GET USER") ;
 res.writeHead(200);
-//res.write(""+user);
-//res.end();
-res.send(user);
+res.write(user.toString());
+res.end();
+//res.send(user);
 }
 });
 query.on('err', function(err){
