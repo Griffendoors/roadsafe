@@ -30,11 +30,10 @@
         </div>
       </div>
   	</div>
-  	
+
   	 <!-- Back icon-->
-	<a href= "title.html" >
 	<img src="images/backicon.png" id="backicon">
-	</a>
+
   	
   
 
@@ -49,6 +48,11 @@
    <script type = "text/javascript">
 	$(document).bind('pageinit',function(){
 
+
+	$('#backicon').on("click", function() {
+      	window.location.replace("title.html");
+
+ 	});
 
 	var username = sessionStorage.getItem('username');
 	document.getElementById("title").innerHTML = username+"s profile";
