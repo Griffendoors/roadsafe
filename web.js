@@ -336,9 +336,7 @@ app.get('/userBadges',function(req,res){
 
   var b1,b2,b3,b4;
   query.on('row',function(result){
-    for(key in result){
-      console.log(result);
-    }
+
     b1 = result.b1;
     b2 = result.b2;
     b3 = result.b3;
@@ -347,10 +345,20 @@ app.get('/userBadges',function(req,res){
 
 
   query.on('end',function(){
-    var toReturn = ""+b1.toString()+b2.toString()+b3.toString()+b4.toString();
+
+    for(key in result){
+      console.log(result);
+    }
+
+
+    // var toReturn = ""+b1.toString()+b2.toString()+b3.toString()+b4.toString();
+
+    // res.writeHead(200);
+    // res.write(toReturn);
+    // res.end();
 
     res.writeHead(200);
-    res.write(toReturn);
+    res.write("");
     res.end();
   });
 
