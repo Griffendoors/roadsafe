@@ -418,6 +418,9 @@ app.post('/newBadge',function(req,res){
   var un = req.body.username;
   var bid = req.body.bid;
 
+  console.log("un"+un);
+    console.log("b"+bid);
+
   var query;
 
     if(bid==1){

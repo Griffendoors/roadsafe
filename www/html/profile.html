@@ -41,56 +41,49 @@
 	  var cond,cond2,cond3,cond4;
 
 	  var data = sessionStorage.getItem('data');
-	  alert(data);
 
-
-	  alert(data.substring(0,1));
-	  alert(data.substring(1,2));
-	  alert(data.substring(2,3));
-	  alert(data.substring(3,4));
+	  // alert(data);
+	  // alert(data.substring(0,1));
+	  // alert(data.substring(1,2));
+	  // alert(data.substring(2,3));
+	  // alert(data.substring(3,4));
 
 	  if(data.substring(0,1) == "f") cond = false;
-	  else cond = false;
+	  else cond = true;
 
-	  if(data.substring(1,2) == "f") cond = false;
-	  else cond = false;
+	  if(data.substring(1,2) == "f") cond2 = false;
+	  else cond = true;
 
-	  if(data.substring(2,3) == "f") cond = false;
-	  else cond = false;
+	  if(data.substring(2,3) == "f") cond3 = false;
+	  else cond = true;
 
-	  if(data.substring(3,4) == "f") cond = false;
-	  else cond = false;
+	  if(data.substring(3,4) == "f") cond4 = false;
+	  else cond = true;
 
-
-	  var cond = sessionStorage.getItem("b1");
-	  var cond2 = sessionStorage.getItem("b2");
-	  var cond3 = sessionStorage.getItem("b3");
-	  var cond4 = sessionStorage.getItem("b4");
 	      
-
-	  if(true) {
+	  if(cond) {
 	    document.getElementById("img1").src = "images/b-01.svg";
 	  }
 	  else{
-	    document.getElementById("img1").src = "images/b-01.svg";
+	    document.getElementById("img1").src = "";
 	  }
 	  if(cond2){
 	    document.getElementById("img2").src = "images/b-02.svg";
 	  }
 	  else{
-	    document.getElementById("img2").src = "images/b-02.svg";
+	    document.getElementById("img2").src = "";
 	  }
 	  if(cond3){
 	    document.getElementById("img3").src = "images/b-03.svg";
 	  }
 	  else{	
-	    document.getElementById("img3").src = "images/b-03.svg";
+	    document.getElementById("img3").src = "";
 	  }
 	  if(cond4){
 	    document.getElementById("img4").src = "images/b-04.svg";
 	  }
 	  else{
-	    document.getElementById("img4").src = "images/b-04.svg";
+	    document.getElementById("img4").src = "";
 	  }
 	});
    
