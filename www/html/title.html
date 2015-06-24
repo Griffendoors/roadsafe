@@ -54,6 +54,7 @@
 				type: "GET",
 				url : "https://roadsafe.herokuapp.com/rank",
 				success : function(data){
+					alert(data);
 					if(data ==  "404 : NOT FOUND"){    
 						alert(data);
 					}
@@ -88,6 +89,10 @@
 						alert(data);
 					}
 					else{
+						alert(data.points_lvl[0]);
+						alert(data.points_lvl[1]);
+						alert(data.points_lvl[2]);
+						alert(data.points_lvl[3]);
 						sessionStorage.setItem('cond',data.points_lvl[0]);
 						sessionStorage.setItem('cond2',data.points_lvl[1]);
 						sessionStorage.setItem('cond3',data.points_lvl[2]);
