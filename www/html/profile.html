@@ -3,6 +3,8 @@
   <head>
     
 	<link rel="stylesheet" href="profile.css" type="text/css" media="screen">
+	  <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <script src="https://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
 	
   </head>
 
@@ -40,25 +42,25 @@
 	  var cond4 = sessionStorage.getItem("cond4");
 	      
 
-	  if(cond) {
+	  if(true) {
 	    document.getElementById("img1").src = "images/b-01.svg";
 	  }
 	  else{
 	    document.getElementById("img1").src = "imageLocIfDoesntHaveB1";
 	  }
-	  if(cond2){
+	  if(cond2==1){
 	    document.getElementById("img2").src = "images/b-02.svg";
 	  }
 	  else{
 	    document.getElementById("img2").src = "imageLocIfDoesntHaveB2";
 	  }
-	  if(cond3){
+	  if(cond3==1){
 	    document.getElementById("img3").src = "images/b-03.svg";
 	  }
 	  else{
 	    document.getElementById("img3").src = "imageLocIfDoesntHaveB3";
 	  }
-	  if(cond4){
+	  if(cond4==1){
 	    document.getElementById("img4").src = "images/b-04.svg";
 	  }
 	  else{
