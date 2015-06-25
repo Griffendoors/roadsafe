@@ -4,8 +4,20 @@
 body{
 max-height: 768px;
 background-repeat: no-repeat;
+
+
 }
 
+
+/* Horozontal Scroll Testing */
+#myWorkContent{
+		    width: auto;
+		    height:100%;
+		    overflow-x: scroll;
+		    overflow-y: hidden;
+		    white-space: nowrap;
+		    margin: 0; padding: 0; border: 0;
+}
 
 a {
     color: #ffffff;
@@ -552,15 +564,6 @@ h1 {
 		}
 
 
-		/* Horozontal Scroll Testing */
-		#myWorkContent{
-		    width: auto;
-		    height:100%;
-		    overflow-x: scroll;
-		    overflow-y: hidden;
-		    white-space: nowrap;
-		    margin: 0; padding: 0; border: 0;
-}
 
 /*BackGroundImages!  */
 
