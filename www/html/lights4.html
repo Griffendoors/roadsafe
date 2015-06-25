@@ -23,6 +23,12 @@ function car(caraudio) {
 function hint() {
     alert("The green man means its safe to cross!");
 }
+
+    	$(document).on("pageshow", "[data-role='page']", function () {
+			 $('div.ui-loader').hide();
+		});
+
+
 </script>
   
 

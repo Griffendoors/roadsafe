@@ -64,7 +64,16 @@
 
 
     <script type="text/javascript">
+    	$(document).on("pageshow", "[data-role='page']", function () {
+			 $('div.ui-loader').hide();
+		});
+
+
 	    $(document).bind('pageinit', function() {
+
+		$(document).on("pageshow", "[data-role='page']", function () {
+			 $('div.ui-loader').hide();
+		});
 
 			var token;
 

@@ -20,6 +20,12 @@ function car(caraudio) {
   var carcoming=document.getElementById(caraudio);
   carcoming.play();
 }
+
+    	$(document).on("pageshow", "[data-role='page']", function () {
+			 $('div.ui-loader').hide();
+		});
+
+
 </script>
   
 

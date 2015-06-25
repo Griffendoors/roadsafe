@@ -74,6 +74,14 @@
 
 
     <script type="text/javascript">
+
+    $(document).on("pageshow", "[data-role='page']", function () {
+       $('div.ui-loader').hide();
+    });
+
+
+
+
     $(document).bind('pageinit', function() {
  
       $.ajaxSetup ({
