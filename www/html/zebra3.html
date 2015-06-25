@@ -91,13 +91,8 @@ function car(caraudio) {
 			cache: false
 		});
 
-		var clickCount = 0;
+		$( "#claimicon" ).bind( "click", function(event, ui) {
 
-		$( "#crossicon" ).bind( "click", function(event, ui) {
-			if(clickCount == 0){
-				clickCount++;
-				return;
-			}
 			var username = sessionStorage.getItem('username');
 			var bid = 2;
 
