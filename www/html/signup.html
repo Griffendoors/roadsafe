@@ -97,7 +97,8 @@
         var un = $("#username").val();
         var pw = $("#password").val();
 
-        if(pw == null || pw === null){
+
+        if(pw == null || pw === null || pw == undefined || pw == "" || pw === ""){
           alert('please Enter a password!');
           return;
         }
