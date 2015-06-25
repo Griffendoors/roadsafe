@@ -1,0 +1,118 @@
+<DOCTYPE html>
+<html>
+  <head>
+    
+	<link rel="stylesheet" href="../css/title.css" type="text/css" media="screen">
+  <link href='http://fonts.googleapis.com/css?family=Fredoka+One' rel='stylesheet' type='text/css'>
+  <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+	
+  </head>
+
+
+  <body>
+  	<div id= "container">
+
+  		<div id="cars"> </div>
+
+  		<div id="title"> </div>
+
+  		<div id= "characters"></div>
+
+  		<div id="buttons">
+  			    <button id="gamelink" type="button">PLAY</button>
+
+
+            <button id="profile" type="button">PROFILE</button>
+
+<button id="tutoriallink" type="button">HOW TO</button>
+
+<button id="logout" type="button">LOGOUT</button>
+
+
+
+  		</div>
+
+
+  	</div>
+
+    <script type="text/javascript">
+  $(document).bind('pageinit', function() {
+    $.ajaxSetup ({
+      cache: false
+    });
+
+
+    var token = sessionStorage.getItem('token');
+
+
+    $( "#gamelink" ).bind( "click", function(event, ui) {
+      window.location.replace("worldmap.html");
+    });
+
+    $( "#tutoriallink" ).bind( "click", function(event, ui) {
+      window.location.replace("info.html");
+    });
+    $( "#infolink" ).bind( "click", function(event, ui) {
+      window.location.replace("info.html");
+    });
+    $( "#quitlink" ).bind( "click", function(event, ui) {
+      window.location.replace("info.html");
+    });
+
+    $( "#profile" ).bind( "click", function(event, ui) {
+
+      var username = sessionStorage.getItem('username');
+
+      $.ajax({
+        type: "GET",
+        url : "https://roadsafe.herokuapp.com/userBadges",
+        data: {username: username},
+        success : function(data){
+          sessionStorage.setItem('data', data);
+          window.location.replace("profile.html");
+
+        },
+          error: function (request, status, error) {
+              alert(request.responseText);
+           }
+      },"json");
+      
+    });
+
+
+
+
+    $( "#logout" ).bind( "click", function(event, ui) {
+    
+      $.ajax({
+        type: "POST",
+        url : "https://roadsafe.herokuapp.com/logout",
+        data: {token: token},
+        success : function(data){
+          if(data == 'logout succesful'){    
+            alert(data);
+            sessionStorage.setItem('token', '');
+            window.location.replace("../index.html");
+          }
+          else{
+            alert('Logout unsuccesful');
+          }
+        },
+        error: function(data) {
+          alert('an error occured');
+        }
+      },"json");
+    });
+
+  });
+  </script>
+
+
+
+  </body>
+
+  
+</html>
+
+

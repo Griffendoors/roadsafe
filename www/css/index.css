@@ -6,6 +6,10 @@ max-height: 768px;
 background-repeat: no-repeat;
 }
 
+
+a {
+    color: #ffffff;
+}
 /*Index.html */
 
 		#user {
@@ -44,15 +48,28 @@ background-repeat: no-repeat;
 
 /* Title.html */
 
-		#title{
-			position:absolute;
-			left: 0;
-			right: 0;
-			top:12%;
-			margin: 0 auto;
-			text-align: center;
-			font-size: 2.5em;
-		}
+
+#title{
+  position:absolute;
+  margin-left:25%;
+  width: 50%;
+  height: 14%;
+  top:5%;
+  background-color:#f32842 ;
+    -moz-border-radius:15px;
+  -webkit-border-radius:15px;
+}
+
+h1 {
+  color:#ffffff;
+   margin-top: -1%;
+   padding-top: 3%;
+  font-family: bold'Fredoka One', cursive; 
+  text-decoration:none;
+  font-size: 70px;
+  text-align: center;
+  font-weight: 900;
+}
 
 
 		/*Menu Buttons*/
@@ -442,48 +459,96 @@ background-repeat: no-repeat;
 
 		/* Back Arrow Icon */
 		#backicon {
-			opacity: 0.6;
+
 			left: 2%;
-			top:92%;
+			top:88%;
 			margin:0 auto;
 			position:absolute;
 			display:block;
-			height:50px;
-			width:50px;
+			height:70px;
+			width:70px;
+		}
+
+				/* Back Arrow Icon */
+		#returnicon {
+			left: 2%;
+			top:85%;
+			margin:0 auto;
+			position:absolute;
+			display:block;
+			height:110px;
+			width:110px;
 		}
 
 		/* Listen Icon */
 		#listenicon {
-			opacity: 0.6;
 			right: 2%;
-			top:92%;
+			top:88%;
 			margin:0 auto;
 			position:absolute;
 			display:block;
-			height:50px;
-			width:50px;
+			height:70px;
+			width:70px;
 		}
 
+/* wait Icon */
+#waiticon{
+  position: absolute;
+  left: 20%;
+  top: 90%;
+  width: 19%;
+  height: 67px;
+  background: #f47527;
+    -moz-border-radius:15px;
+  -webkit-border-radius:15px;
+  border:0;
+  color:#ffffff;
+   margin-top: -1%;
+  font-family: bold'Fredoka One', cursive; 
+  text-decoration:none;
+  font-size: 50px;
+  text-align: center;
+  font-weight: 900;
+}
 
-		/* Wait Icon */
+/* CrossIcon */
+#crossicon{
+  position: absolute;
+  right: 20%;
+  top:90%;
+  width: 19%;
+  height: 67px;
+  background: #f47527;
+    -moz-border-radius:15px;
+  -webkit-border-radius:15px;
+  border:0;
+  color:#ffffff;
+   margin-top: -1%;
+  font-family: bold'Fredoka One', cursive; 
+  text-decoration:none;
+  font-size: 50px;
+  text-align: center;
+  font-weight: 900;
+}
+		/* Claim Icon */
 
-		#waiticon{
+		#claimicon{
 			position:absolute;
-			left: 20%;
-			top:85%;
-			text-align: center;
-			font-size: 2.5em;
-		}
-
-
-		/* Cross Icon */
-
-		#crossicon{
-			position:absolute;
-			right:20%;
-			top:85%;
-			text-align: center;
-			font-size: 2.5em;
+			right:35%;
+			top:88%;
+			width: 30%;
+			  height: 67px;
+			  background: #f47527;
+			    -moz-border-radius:15px;
+			  -webkit-border-radius:15px;
+			  border:0;
+			  color:#ffffff;
+			   margin-top: -1%;
+			  font-family: bold'Fredoka One', cursive; 
+			  text-decoration:none;
+			  font-size: 50px;
+			  text-align: center;
+			  font-weight: 900;
 		}
 
 
@@ -546,9 +611,9 @@ background-repeat: no-repeat;
 
 			#lights {
 
-			opacity: 0.6;
-			left: 58%;
-			top:48%;
+
+			left: 51%;
+			top:48.2%;
 			margin:0 auto;
 			position:absolute;
 			display:block;
@@ -557,9 +622,9 @@ background-repeat: no-repeat;
 			}
 
 			#zebra {
-			opacity: 0.6;
-			left: 58%;
-			top:70%;
+
+			left: 64%;
+			top:65%;
 			margin:0 auto;
 			position:absolute;
 			display:block;
@@ -569,8 +634,8 @@ background-repeat: no-repeat;
 			}
 
 			#roundabout {
-			opacity: 0.6;
-			left: 26.5%;
+
+			left: 15%;
 			top:48.2%;
 			margin:0 auto;
 			position:absolute;
@@ -581,9 +646,9 @@ background-repeat: no-repeat;
 			}
 
 			#road {
-			opacity: 0.6;
-			left: 42%;
-			top:25%;
+
+			left: 37%;
+			top:24%;
 			margin:0 auto;
 			position:absolute;
 			display:block;
@@ -593,51 +658,96 @@ background-repeat: no-repeat;
 	}
 
 /*Choose Where to Cross Screen*/
-		/*
-			#leftchoice {
 
-			opacity: 0.6;
-			left: 73%;
-			top:60%;
+/*Invisible Links*/
+
+			#rbchoice {
+
+			left: 41%;
+			top:77.5%;
 			margin:0 auto;
 			position:absolute;
 			display:block;
-			height:100px;
+			height:54px;
 			width:100px;
-			}
-		*/
-			#middlechoice {
+		}
+
+			#zebrachoice {
+
 			left: 46%;
-			top:60%;
+			top:78%;
 			margin:0 auto;
 			position:absolute;
 			display:block;
-			height:100px;
+			height:54px;
 			width:100px;
-			background-color: #ffffff;
+		}
+		
+	
+			#orchoice {
 
-				
-			}
-
-		/*	#rightchoice {
-			opacity: 0.6;
-			left: 20%;
-			top:60%;
+			left: 43%;
+			top:77.5%;
 			margin:0 auto;
 			position:absolute;
 			display:block;
-			height:100px;
+			height:54px;
+			width:200px;
+						}
+
+			#tlchoice {
+
+			right: 45%;
+			top:78%;
+			margin:0 auto;
+			position:absolute;
+			display:block;
+			height:54px;
 			width:100px;
-				
-			}
-		*/
-			#reddiv{
+}
+
+/*Red Divs */
+			#reddivrb{
 			opacity: 0.6;
-			top:60%;
+			top:77.5%;
 			margin:0 auto;
 			position:absolute;
 			display:block;
-			height:100px;
+			height:54px;
+			width:50%;
+			background-color:#ff0000;
+		}
+
+
+			#reddivtl{
+			opacity: 0.6;
+			top:78%;
+			margin:0 auto;
+			position:absolute;
+			display:block;
+			height:54px;
+			width:54%;
+			background-color:#ff0000;
+		}
+
+			#reddivor{
+			opacity: 0.6;
+			top:77.5%;
+			margin:0 auto;
+			position:absolute;
+			display:block;
+			height:54px;
+			width:100%;
+			background-color:#ff0000;
+		}
+
+			#reddivzebra{
+			opacity: 0.6;
+			top:78%;
+			margin:0 auto;
+			position:absolute;
+			display:block;
+			height:54px;
 			width:100%;
 			background-color:#ff0000;
 		}
