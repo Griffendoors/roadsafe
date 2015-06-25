@@ -53,14 +53,14 @@
 	$(document).bind('pageinit',function(){
 
 
-	$('#backicon').on("click", function() {
-      	window.location.replace("newtitle.html");
+	$('#returnicon').on("click", function() {
+      	window.location.replace("title.html");
 
  	});
 
 	var username = sessionStorage.getItem('username');
-	document.getElementById("title").innerHTML = username+"s profile";
-	document.getElementById("name").innerHTML = username+"s badges";
+	document.getElementById("title").innerHTML = username+"'s profile";
+	document.getElementById("name").innerHTML = username+"'s badges";
 
 
 	  var cond,cond2,cond3,cond4;
