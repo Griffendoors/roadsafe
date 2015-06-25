@@ -51,7 +51,6 @@
                     <br>
                     <center id= "confirm"><input type="password" name="Confirm" placeholder="Confirm"></center>
                     <br>
-                    <center><input type="submit" value="signup" id="signup"></center>
                 </li>
                 </ul>
 
@@ -81,7 +80,7 @@
         cache: false
       });
 
-        $( "#signup" ).bind( "click", function(event, ui) {
+        $( "#confirm" ).bind( "click", function(event, ui) {
         var un = $("#username").val();
         var pw = $("#password").val();
         $.ajax({
