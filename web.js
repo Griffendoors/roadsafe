@@ -466,6 +466,7 @@ function doseqTok(req,res){
 function encrypt(given,callback){
   password(given).hash(function(error, hash) {
       if(error){
+        console.log(error.message);
         throw new Error('Something went wrong!');
       }
       callback(hash);
