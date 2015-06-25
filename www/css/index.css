@@ -690,13 +690,13 @@ h1 {
 			#orchoice {
 
 			left: 43%;
-			top:77.5%;
+			top:80.5%;
 			margin:0 auto;
 			position:absolute;
 			display:block;
-			height:54px;
+			height:40px;
 			width:200px;
-						}
+			}
 
 			#tlchoice {
 
@@ -735,11 +735,11 @@ h1 {
 
 			#reddivor{
 			opacity: 0.6;
-			top:77.5%;
+			top:80.5%;
 			margin:0 auto;
 			position:absolute;
 			display:block;
-			height:54px;
+			height:40px;
 			width:100%;
 			background-color:#ff0000;
 		}
