@@ -96,6 +96,14 @@
         $( "#confirm" ).bind( "click", function(event, ui) {
         var un = $("#username").val();
         var pw = $("#password").val();
+
+        if(pw == null || pw === null){
+          alert('please Enter a password!');
+          return;
+        }
+
+
+
         $.ajax({
           type: "POST",
           url : "https://roadsafe.herokuapp.com/newUser",
