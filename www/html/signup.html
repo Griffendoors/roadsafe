@@ -33,14 +33,14 @@
           <!-- log-in button -->
           <li>
             <button id="login" type="button">
-              <a href="">SIGN IN</a>
+              SIGN IN
             </button>
           </li>
 
           <!-- sign-up button -->
            <li>
               <button id="signup" type="button">
-                <a href="">SIGN UP</a>
+                SIGN UP
                 
                 <!-- expanded box -->
                 <ul>
@@ -79,6 +79,11 @@
       $.ajaxSetup ({
         cache: false
       });
+
+
+        $( "#login" ).bind( "click", function(event, ui) {
+          window.location.replace("html/index.html");
+        });
 
         $( "#confirm" ).bind( "click", function(event, ui) {
         var un = $("#username").val();
