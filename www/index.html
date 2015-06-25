@@ -2,30 +2,65 @@
 <html>
 <head>
 <title>Title of the document</title>
-<link rel="stylesheet" type="text/css" href="css/index.css">
+<link rel="stylesheet" type="text/css" href="../css/main.css">
+<link href='http://fonts.googleapis.com/css?family=Fredoka+One' rel='stylesheet' type='text/css'>
   <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
   <script src="https://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
-      <link rel="stylesheet" href="https://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
 </head>
 
 <body>
 
-<img id="loginbackground"src="images/setting.png">
+<!-- <img id="loginbackground"src="images/setting.png"> -->
+<div id="container">
 
-<section class="container">
-    <div class="login">
-          <h1 id="title">Login</h1>
-      <p><input type="text" name="username" value="" placeholder="Username" id = "username"></p>
-      <p><input type="password" name="password" value="" placeholder="Password" id = "password"></p>
-      <p id= "submit" class="submit"value="login"><input type="submit" value="login" id="login" /></p>
-
+	  <div id= "head">
+      <div id= "title"></div>
     </div>
 
-    <div class = "signup">
-    	<input type="submit" value="signup" id="signup" />
-    </div>
+<div id= "body">
 
-  </section>
+    <div id="boy"></div>
+    <div id="girl"></div>
+
+
+    <!-- button -->
+
+<div id="box">
+    <ul>
+
+    	<!-- login button -->
+    	<li>
+    		     <button id="login" type="button" onclick="myFunction()">
+              <a href="">SIGN IN</a>
+
+              <ul>
+              	<li id="log-in">
+
+     <!--       <div class="login"> -->
+                 <!-- <h1 id="title">Login</h1> -->
+                 <center id= "user"><input type="text" name="username" value="" placeholder="Username" id = "username"></p>
+                 <center id= "pass"><input type="password" name="password" value="" placeholder="Password" id = "password"></p>
+                 <center id= "submit" class="submit"value="login"><input type="submit" value="login" id="login" /></p>
+                </li>
+              </ul>
+             </button>
+        </li>
+
+
+    <!-- sign up button -->
+           <li id = "signup">
+              <button type="submit" value="signup" id="signup">
+                <a href="">SIGN UP</a>
+              </button>
+           </li>
+    </ul>
+
+</div>
+
+</div>
+
+</div>
+
 
     <script type="text/javascript">
 	    $(document).bind('pageinit', function() {
@@ -56,7 +91,7 @@
 						  alert('Logon succesful');
 						  sessionStorage.setItem('token', data);
 						  sessionStorage.setItem('username', un);
-						  window.location.replace("html/newtitle.html");
+						  window.location.replace("html/title.html");
 						}
 					},
 					error: function(data) {

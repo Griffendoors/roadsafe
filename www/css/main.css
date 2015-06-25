@@ -1,0 +1,197 @@
+body{
+
+max-height: 768px;
+background-repeat: no-repeat;
+}
+
+
+#container {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+  background: url(images/title.svg);
+  background-repeat: no-repeat;
+  background-size: 100%, 100%;
+/*  border:1px solid black;*/
+
+}
+
+#head{
+ /* position:absolute;*/
+ margin-top: 2%;
+  width: 100%;
+  height: 20%;
+/*  border:1px solid black;*/
+
+}
+
+#title{
+  position:absolute;
+  margin-left:21%;
+  margin-top:6%;
+  width: 59%;
+  height: 14%;
+  background: url(images/head.svg);
+  background-repeat: no-repeat;
+  background-size: 100%, 100%;
+/*  border:1px solid black;*/
+
+}
+
+
+#body{
+ /* position:absolute;*/
+  width: 100%;
+  height: 80%;
+/*  border:1px solid black;*/
+
+}
+
+#boy {
+  margin-left:7%;
+  height: 69%;
+  width: 25%;
+  margin-top: 8%;
+  position: absolute;
+/*  background: url(images/boy.svg);
+  background-repeat: no-repeat;
+  background-size: 100%, 100%;*/
+/*  border:1px solid black;*/
+
+}
+
+#girl {
+  margin-left:68%;
+  margin-top:8%;
+  height: 69%;
+  width: 25%;
+  position: absolute;
+/*  background: url(images/girl.svg);
+  background-repeat: no-repeat;
+  background-size: 100%, 100%;*/
+/*  border:1px solid black;*/
+
+}
+
+
+#box {
+  float: left;
+  width: 30%;
+  margin-top: 2%;
+  margin-left: 35%;
+  position: absolute;
+  /*border:1px solid black;*/
+
+}
+
+#box > ul > li {
+  position: relative;
+  background: #e94f31;
+  margin-left: -9%;
+  margin-top: 20%;
+  width: 100%;
+/*  height: 20%;*/
+  -moz-border-radius:15px;
+  -webkit-border-radius:15px;
+  list-style-type: none;
+}
+
+#log-in  {
+  position: relative;
+  margin-top: 10%;
+  width: 100%;
+  height: 20%;
+}
+
+#sign-up  {
+  position: relative;
+  margin-top: 10%;
+  width: 100%;
+  height: 40%;
+}
+
+#box ul ul li {
+   margin-left: -10%;
+  list-style-type: none;
+*/}
+
+#buttons {
+  position:absolute;
+  float: left;
+  margin-left:70%;
+  margin-top:-52%;
+    position: absolute;
+  height: 60%;
+  width:21%;
+/*  border:1px solid black;*/
+  
+}
+
+button{
+  position: relative;
+  overflow: hidden;
+  background: #f47527;
+  float: right;
+  margin-top: 12%;
+  width: 90%;
+  height: 18%;
+  -moz-border-radius:20px;
+  -webkit-border-radius:20px;
+  /*list-style-type: none;*/
+  border: 0;
+}
+
+a {
+  color:#ffffff;
+  font-family: bold'Fredoka One', cursive; 
+  text-decoration:none;
+    font-size: 50px;
+    text-align: center;
+    font-weight: 900;
+
+}
+
+input[type="text"] {
+/*  display: block;*/
+  margin: 0;
+  width: 70%;
+   -moz-border-radius:20px;
+  -webkit-border-radius:20px;
+  text-align: center;
+  font-family: bold'Fredoka One', cursive; 
+  text-decoration:none;
+  border: 0;
+/*  font-size: 15px;*/
+/*  font-weight: 900;*/
+}
+
+input[type="password"] {
+/*  display: block;*/
+  margin: 0;
+  width: 70%;
+   -moz-border-radius:20px;
+  -webkit-border-radius:20px;
+  text-align: center;
+  font-family: bold'Fredoka One', cursive; 
+  text-decoration:none;
+  border: 0;
+}
+
+input[type=submit]{
+  display: block;
+  font-family: bold'Fredoka One', cursive; 
+  -moz-border-radius:20px;
+  -webkit-border-radius:20px;
+  text-decoration:none;
+  border: 0;
+  color:#ffffff;
+}
+
+
+
+
+
+
+
+

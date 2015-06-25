@@ -2,23 +2,76 @@
 <html>
 <head>
 <title>Signup</title>
-<link rel="stylesheet" type="text/css" href="../css/index.css">
+<link rel="stylesheet" type="text/css" href="../css/main.css">
   <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
   <script src="https://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
-      <link rel="stylesheet" href="https://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
+  <link href='http://fonts.googleapis.com/css?family=Fredoka+One' rel='stylesheet' type='text/css'>
 </head>
+
+
+
+
 
 <body>
 
-<img id="loginbackground"src="images/setting.png">
+   <div id= "container">
 
-<section class="container">
-    <div class="signup">
-      <p><input type="text" name="username" value="" placeholder="Enter a Username" id = "username"></p>
-      <p><input type="password" name="password" value="" placeholder="Enter a Password" id = "password"></p>
-       <input type="submit" value="signup" id="signup" />
+    <div id= "head">
+      <div id= "title"></div>
     </div>
-  </section>
+
+    <div id= "body">
+
+      <div id="boy"></div>
+      <div id="girl"></div>
+
+      <div id="box">
+
+        <ul>
+
+          <!-- log-in button -->
+          <li>
+            <button id="login" type="button" onclick="myFunction()">
+              <a href="">SIGN IN</a>
+            </button>
+          </li>
+
+          <!-- sign-up button -->
+           <li>
+              <button id="signup" type="button" onclick="myFunction()">
+                <a href="">SIGN UP</a>
+                
+                <!-- expanded box -->
+                <ul>
+                <li id="sign-up">
+                    <center id= "username"><input type="text" name="Username" placeholder="Enter a Username"></center>
+                    <br>
+                    <center id= "password"><input type="password" name="Password" value="" placeholder="Enter a Password" id = "password"></center>
+                    <br>
+                    <center id= "confirm"><input type="password" name="Confirm" placeholder="Confirm"></center>
+                    <br>
+                    <center><input type="submit" value="signup" id="signup"></center>
+                </li>
+                </ul>
+
+              </button>
+           </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
 
     <script type="text/javascript">
     $(document).bind('pageinit', function() {
